@@ -15,7 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from rest_framework import routers
+from cadastro.api.viewsets import CadastroViewSet
+
+router = routers.DefaultRouter()
+router.register(r'employee', CadastroViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    #path(r'^api-auth/', include('rest_framework.urls'))
 ]
