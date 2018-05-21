@@ -1,6 +1,6 @@
 from rest_framework.viewsets import ModelViewSet
 from cadastro.models import Cadastro
-from . serializer import CadastroSerializer 
+from . serializer import CadastroSerializer
 
 
 class CadastroViewSet(ModelViewSet):
@@ -9,4 +9,3 @@ class CadastroViewSet(ModelViewSet):
 
     def get_queryset(self):
         return Cadastro.objects.filter(active=True)
-
