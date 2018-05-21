@@ -6,9 +6,18 @@ class CadastroTesteViews(TestCase):
     """
         Teste função a urls
     """
+    def setUp(self):
+        self.arnaldo = Cadastro.objects.create(
+            id=1, active=True, name='Arnaldo Pereira',
+            email='arnaldo@gmail.com', department='Developer'
+        )
 
     def test_request200(self):
         response = self.client.get('/employee/')
+        self.assertEqual(response.status_code, 200)
+
+    def test_request200_id(self):
+        response = self.client.get('/employee/1/')
         self.assertEqual(response.status_code, 200)
 
 
@@ -31,11 +40,3 @@ class CadastroTesteModel(TestCase):
 
     def teste_funcionario_department(self):
         self.assertEqual(self.arnaldo.department, 'Developer')
-
-
-
-
-
-
-
-#python manage.py test

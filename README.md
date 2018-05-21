@@ -53,7 +53,7 @@ http://127.0.0.1:8000/admin/
 http://127.0.0.1:8000/employee/
 
 ### Endpoints
-**Método**|**URL**|**Ação**
+**Método**|**Endpoint**|**Ação**
 :--:|:--:|:--:
 GET|`http://127.0.0.1:8000/employee/`|lista os funcionários
 GET|`http://127.0.0.1:8000/employee/<id>`|Detalhe do funcionário
@@ -61,7 +61,7 @@ POST|`http://127.0.0.1:8000/employee/`|cria um novo funcionário
 PUT|`http://127.0.0.1:8000/employee/<id>/`|atualiza um funcionário
 DELETE|`http://127.0.0.1:8000/employee/<od>/`|deleta um funcionário
 
-**CURL Request terminal***
+**CURL Request lista no terminal**
 `curl -H "Content-Type: application/javascript" http://localhost:8000/employee/`
 
 **Response Json**
@@ -72,6 +72,42 @@ DELETE|`http://127.0.0.1:8000/employee/<od>/`|deleta um funcionário
       "name": "Gilson Leite",
       "email": "example@gmail.com",
       "department": "Developer",      
-  }
+  },
+  {
+        "id": 2,
+        "name": "Lucas Leite",
+        "email": "example-lucas@gmail.com",
+        "department": "Developer"
+    }
 ]
+```
+
+**CURL Request detalhe no terminal**
+`curl -H "Content-Type: application/javascript" http://localhost:8000/employee/1/`
+
+**Response Json**
+```json
+[
+    {
+      "id": 1,
+      "name": "Gilson Leite",
+      "email": "example@gmail.com",
+      "department": "Developer",      
+  } 
+]
+```
+
+
+**Testes unitários**
+`(venv)$ python manage.py test`
+
+```
+Creating test database for alias 'default'...
+System check identified no issues (0 silenced).
+.....
+----------------------------------------------------------------------
+Ran 5 tests in 0.010s
+
+OK
+Destroying test database for alias 'default'...
 ```
